@@ -16,7 +16,16 @@
 /**
  * Change default palette of tl_article
  */
-$GLOBALS['TL_DCA']['tl_article']['palettes']['default'] = str_replace(',printable;{template', ',printable;{sharebuttons_legend},sharebuttons_networks,sharebuttons_theme,sharebuttons_template;{template', $GLOBALS['TL_DCA']['tl_article']['palettes']['default']);
+//$GLOBALS['TL_DCA']['tl_article']['palettes']['default'] = str_replace(',printable;{template', ',printable;{sharebuttons_legend},sharebuttons_networks,sharebuttons_theme,sharebuttons_template;{template', $GLOBALS['TL_DCA']['tl_article']['palettes']['default']);
+// New:
+PaletteManipulator::create()
+    ->addLegend('sharebuttons_legend', 'template_legend', PaletteManipulator::POSITION_AFTER)
+    ->addField(
+        ['sharebuttons_networks', 'sharebuttons_theme', 'sharebuttons_template'],
+        'sharebuttons_legend',
+        PaletteManipulator::POSITION_APPEND
+    )
+    ->applyToPalette('default', 'tl_article');
 
 /**
  * Add fields to tl_article

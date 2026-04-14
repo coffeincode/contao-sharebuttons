@@ -13,6 +13,7 @@
  */
 
 use Contao\NewsBundle\ContaoNewsBundle;
+use Contao\CoreBundle\DataContainer\PaletteManipulator;
  
 if (class_exists(Contao\ModuleLoader::class)) {
 	$add = \in_array('news', Contao\ModuleLoader::getActive());
@@ -24,7 +25,18 @@ if ($add) {
     /**
      * Add palettes to tl_news_archive
      */
-    $GLOBALS['TL_DCA']['tl_news_archive']['palettes']['default'] .= ';{sharebuttons_legend},sharebuttons_networks,sharebuttons_theme,sharebuttons_template';
+    // deprecated and error-prone:
+    // $GLOBALS['TL_DCA']['tl_news_archive']['palettes']['default'] .= ';{sharebuttons_legend},sharebuttons_networks,sharebuttons_theme,sharebuttons_template';
+
+    // New:
+    PaletteManipulator::create()
+        ->addLegend('sharebuttons_legend', 'publish_legend', PaletteManipulator::POSITION_AFTER)
+        ->addField(
+            ['sharebuttons_networks', 'sharebuttons_theme', 'sharebuttons_template'],
+            'sharebuttons_legend',
+            PaletteManipulator::POSITION_APPEND
+        )
+        ->applyToPalette('default', 'tl_news_archive');
 
     /**
      * Add fields to tl_news_archive
