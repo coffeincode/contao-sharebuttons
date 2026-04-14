@@ -1,6 +1,6 @@
 {
-    "name": "fritzmg/contao-sharebuttons",
-    "description": "Simple Contao extension to provide share buttons as a module and content element",
+    "name": "coffeincode/contao-sharebuttons",
+    "description": "port/fork of fritzmg/contao-sharebuttons - Simple Contao extension to provide share buttons as a module and content element",
     "keywords":["contao", "share", "buttons", "social", "facebook", "twitter"],
     "type": "contao-module",
     "homepage": "http://www.inspiredminds.at",
