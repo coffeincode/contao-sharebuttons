@@ -11,7 +11,7 @@
  * @author    Fritz Michael Gschwantner <fmg@inspiredminds.at>
  * @license   LGPL-3.0-or-later
  */
-
+use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
 /**
  * Change default palette of tl_article

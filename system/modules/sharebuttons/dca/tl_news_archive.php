@@ -14,6 +14,7 @@
 
 use Contao\NewsBundle\ContaoNewsBundle;
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
+
  
 if (class_exists(Contao\ModuleLoader::class)) {
 	$add = \in_array('news', Contao\ModuleLoader::getActive());
